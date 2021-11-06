@@ -7,7 +7,6 @@ const filePath = path.join(__dirname, 'secret-folder');
 const getFileInfo = (directory) => {
   fs.readdir(directory, (error, files) => {
     if (error) throw error;
-    /* console.log(files); */
 
     for (let file of files) {
       fs.stat(directory + '/' + file, (error, stats) => {
