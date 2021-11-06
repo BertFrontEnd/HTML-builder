@@ -11,9 +11,10 @@ const interfaceObject = {
 };
 const r1 = readline.createInterface(interfaceObject);
 
+const prettyTextToExit = chalk.bgGreen('Good Buy, see you later!');
+
 const writeToFile = (message) => {
-  if (message === 'exit' /* || (key && key.name === 'c' && key.ctrl) */) {
-    const prettyTextToExit = chalk.bgGreen('Good Buy, see you later!');
+  if (message === 'exit') {
     console.log(prettyTextToExit);
     process.exit();
   } else {
@@ -35,8 +36,9 @@ r1.on('line', (message) => {
 const prettyTextStart = chalk.bgMagenta('File is created, enter your message:');
 console.log(prettyTextStart);
 
-/* fs.writeFile(filePath, fileContent, (error) => {
-  if (error) throw error;
-  const prettyTextSatrt = chalk.blue(fileContent);
-  console.log(prettyTextSatrt);
-}); */
+interfaceObject.input.on('keypress', (chunk, key) => {
+  if (key && key.name === 'c' && key.ctrl) {
+    console.log(prettyTextToExit);
+    process.exit();
+  }
+});
