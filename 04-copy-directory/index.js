@@ -12,11 +12,9 @@ const readDir = async () => {
 
 const copyFiles = async (fileName) => {
   const fileFrom = path.resolve(srcFilePath, fileName);
-  console.log(fileFrom);
   const fileTo = path.resolve(distFilePath, fileName);
-  console.log(fileTo);
 
-  await copyFile(fileFrom, fileTo, (error) => {
+  await copyFile(fileFrom, fileTo, null, (error) => {
     if (error) throw error;
   });
 };
