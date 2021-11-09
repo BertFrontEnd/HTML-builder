@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const chalk = require('chalk');
 const readline = require('readline');
 const process = require('process');
 
@@ -11,11 +10,9 @@ const interfaceObject = {
 };
 const r1 = readline.createInterface(interfaceObject);
 
-const prettyTextToExit = chalk.bgGreen('Good Buy, see you later!');
-
 const writeToFile = (message) => {
   if (message === 'exit') {
-    console.log(prettyTextToExit);
+    console.log('Good Buy, see you later!');
     process.exit();
   } else {
     writeableStream.write(`${message} \n`);
@@ -33,12 +30,11 @@ r1.on('line', (message) => {
   writeToFile(message);
 });
 
-const prettyTextStart = chalk.bgMagenta('File is created, enter your message:');
-console.log(prettyTextStart);
+console.log('File is created, enter your message:');
 
 interfaceObject.input.on('keypress', (chunk, key) => {
   if (key && key.name === 'c' && key.ctrl) {
-    console.log(prettyTextToExit);
+    console.log('Good Buy, see you later!');
     process.exit();
   }
 });
