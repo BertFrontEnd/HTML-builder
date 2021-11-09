@@ -30,7 +30,7 @@ const getFileInfo = (directory) => {
             chalk.magenta(fileSize),
           );
         } else {
-          getFileInfo(directory + '/' + file);
+          return;
         }
       });
     }
