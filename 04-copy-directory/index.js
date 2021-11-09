@@ -1,6 +1,5 @@
 const { readdir, mkdir, rm, copyFile } = require('fs/promises');
 const path = require('path');
-const chalk = require('chalk');
 
 const srcFilePath = path.join(__dirname, 'files');
 const distFilePath = path.join(__dirname, 'files-copy');
@@ -33,4 +32,4 @@ const copy = async () => {
 
 copy();
 
-console.log(chalk.cyan('Copy is done!'));
+console.log('Copy is done!');
