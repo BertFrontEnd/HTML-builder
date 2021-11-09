@@ -1,7 +1,6 @@
 const { readdir, mkdir, rm, copyFile } = require('fs/promises');
 const fs = require('fs');
 const path = require('path');
-const chalk = require('chalk');
 
 const srcFilePath = path.join(__dirname, 'styles');
 const distFilePath = path.join(__dirname, 'project-dist');
@@ -164,4 +163,4 @@ const init = async () => {
 
 init();
 
-console.log(chalk.cyan('Create layout is done!'));
+console.log('Create layout is done!');
