@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const chalk = require('chalk');
 
 const filePath = path.join(__dirname, 'secret-folder');
 
@@ -21,13 +20,13 @@ const getFileInfo = (directory) => {
             path.parse(file).ext === '' ? 'null' : path.parse(file).name;
           let fileSize = Number((stats.size / 1024).toFixed(3)) + 'kb';
           console.log(
-            chalk.cyan(fullNameFile),
+            fullNameFile,
             '->',
-            chalk.yellow(nameFile),
+            nameFile,
             '-',
-            chalk.green(fileExt),
+            fileExt,
             '-',
-            chalk.magenta(fileSize),
+            fileSize,
           );
         } else {
           return;
