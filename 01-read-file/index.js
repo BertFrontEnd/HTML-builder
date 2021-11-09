@@ -4,8 +4,9 @@ const chalk = require('chalk');
 
 const filePath = path.join(__dirname, './', 'text.txt');
 
-fs.readFile(filePath, 'utf8', (error, fileContent) => {
-  if (error) throw error;
+const readableStream = fs.createReadStream(filePath, 'utf8');
+
+readableStream.on('data', (fileContent) => {
   const prettyText = chalk.blue(fileContent);
   console.log(prettyText);
 });
