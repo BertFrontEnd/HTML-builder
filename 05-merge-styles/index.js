@@ -1,7 +1,6 @@
 const { readdir } = require('fs/promises');
 const fs = require('fs');
 const path = require('path');
-const chalk = require('chalk');
 
 const srcFilePath = path.join(__dirname, 'styles');
 const distFilePath = path.join(__dirname, 'project-dist', 'bundle.css');
@@ -53,4 +52,4 @@ const createBundle = async () => {
 
 createBundle();
 
-console.log(chalk.cyan('Create bundle is done!'));
+console.log('Create bundle is done!');
